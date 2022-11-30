@@ -2,6 +2,8 @@
 
 Simple plugin to display the clock in the toolbar.
 
+![](screenshots/output.gif)
+
 # Styling
 
 Include in your `custom.css` the following:
