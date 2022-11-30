@@ -6,9 +6,9 @@ function main() {
 
   callSettings();
 
-  function clock() {
-    const date = new Date();
+  const date = new Date();
 
+  function clock(date: Date) {
     let options = {};
 
     options["hour12"] = logseq.settings!.twelveHourFormat;
@@ -24,6 +24,12 @@ function main() {
     return now;
   }
 
+  function clockIcon(date: Date) {
+    const hour = date.toLocaleTimeString([], { hour12: true }).substring(0, 2);
+
+    return `<i class="ti ti-clock-hour-${hour}"></i>`;
+  }
+
   logseq.provideStyle(`
 											.clockPlugin {
 												font-familiy: "Courier";
@@ -36,7 +42,7 @@ function main() {
   window.setInterval(() => {
     logseq.App.registerUIItem("toolbar", {
       key: "logseq-clock-plugin",
-      template: `<p class="clockPlugin">${clock()}</p>`,
+      template: `<p class="clockPlugin">${clockIcon(date)} ${clock(date)}</p>`,
     });
   }, 1000);
 }
