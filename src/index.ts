@@ -33,8 +33,12 @@ function main() {
   }
 
   logseq.provideStyle(`
+											@font-face {
+												font-family: Chivo;
+												src: url("./chivo.ttf")
+											}
 											.clockPlugin {
-												font-familiy: "Courier";
+												font-family: Chivo, "Courier New", monospace;
 												font-size: 13px;
 												padding: 0 3px;
 											}
